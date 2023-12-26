@@ -1,13 +1,13 @@
 NAME = libftprintf.a
-SRCS = ft_printf.c
+LIBFTNAME = libft.a
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
+LIBFTDIR = ./libft
+LIBFT_PATH = $(LIBFTDIR)/$(LIBFTNAME)
 
+SRCS = ft_printf.c
 OBJS = $(SRCS:.c=.o)
-
-LIBFT_PATH = ./libft
-LIBFT = $(LIBFT_PATH)/libft.a
 
 all: $(NAME)
 
@@ -15,13 +15,13 @@ $(NAME): libft $(OBJS)
 	ar -r $(NAME) $(OBJS)
 
 libft:
-	make -C $(LIBFT_PATH)
-	cp  $(LIBFT_PATH)/libft.a .
+	make -C $(LIBFTDIR)
+	cp  $(LIBFT_PATH) .
 	mv libft.a $(NAME)
 
 clean:
 	rm -f $(OBJS)
-	cd $(LIBFT_PATH) && make clean
+	cd $(LIBFTDIR) && make clean
 
 fclean: clean
 	rm -f $(NAME)

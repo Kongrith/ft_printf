@@ -11,24 +11,39 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-int ft_printf(int n, ...)
+
+static int ft_formats(va_list args, const char format)
 {
-	int	sum;
-	va_list ptr;			// declar pointer to argument list
-	va_start(ptr, n);	//
-	sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		printf("%d\n",va_arg(ptr, int));
-		sum += va_arg(ptr, int);
-	}
-	va_end(ptr);
-	return (sum);
+	// %d	writes a signed integer to decimal representation.
+	if (format == 'c')
+		ft_putchar_fd(va_arg(args, int), 1);
+
+	return (va_arg(args, int));
 }
-/*
-int	main()
+
+int ft_printf(const char *str, ...)
 {
-	printf("%c\n", ft_printf(1, 2, 3));
-	return(0);
-}*/
+	int i;
+	int print_length;
+	va_list args;
+	va_start(args, str);
+
+	i = 0;
+	print_length = 0;
+	while (str[i])
+	{
+		if (str[i] == '%' && ft_strchr("cspdiuxX%", str[i + 1]))
+		{
+			print_length = ft_formats(args, str[i + 1]);
+			i++;
+		}
+		else
+		{
+			ft_putchar_fd(str[i], 1);
+			print_length += 1;
+		}
+		++i;
+	}
+	va_end(args);
+	return (print_length);
+}

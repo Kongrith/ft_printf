@@ -13,10 +13,11 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-int	main()
+int main()
 {
-	printf("%d\n", ft_printf(1));
-	printf("%d\n", ft_printf(1, 2));
-	printf("%d\n", ft_printf(1, 2, 3));
-	return(0);
+	ft_printf("%d bangkok", 42);
+	printf("\n");
+	ft_printf("Hi %c", '5');
+	printf("\n");
+	return (0);
 }
