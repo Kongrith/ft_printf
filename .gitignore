@@ -7,7 +7,7 @@ libft/
 *.out
 
 # ignore gitignore file
-/.gitignore
+.gitignore
 
 # ignore test & example files
 ex*.c

@@ -6,7 +6,7 @@ CFLAGS = -Wall -Werror -Wextra
 LIBFTDIR = ./libft
 LIBFT_PATH = $(LIBFTDIR)/$(LIBFTNAME)
 
-SRCS = ft_printf.c
+SRCS = ft_printf.c ft_printchar.c ft_printstr.c ft_printptr.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
