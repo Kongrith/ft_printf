@@ -1,30 +1,35 @@
 NAME = libftprintf.a
 LIBFTNAME = libft.a
 
-CC = cc
+CXX = cc
 CFLAGS = -Wall -Werror -Wextra
+IFLAGS = -I.
 LIBFTDIR = ./libft
 LIBFT_PATH = $(LIBFTDIR)/$(LIBFTNAME)
 
-SRCS = ft_printf.c ft_printchar.c ft_printstr.c ft_printptr.c
+SRCS = ft_printf.c ft_printchar.c ft_printstr.c ft_printptr.c ft_printdec.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
+	@echo "built $(NAME) successfully"
 
-$(NAME): libft $(OBJS)
-	ar -r $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+	@make -C $(LIBFTDIR)
+	@cp $(LIBFT_PATH) $(LIBFTNAME)
+	@mv $(LIBFTNAME) $(NAME)
+	@ar rcs $(NAME) $(OBJS)
 
-libft:
-	make -C $(LIBFTDIR)
-	cp  $(LIBFT_PATH) .
-	mv libft.a $(NAME)
+%.o: %.c
+	$(CXX) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
-	cd $(LIBFTDIR) && make clean
+	@rm -f $(OBJS)
+	@make clean -C $(LIBFTDIR)
+	@echo "cleand the object files successfully"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@rm -f $(LIBFT_PATH)	
 
 re: fclean all
 

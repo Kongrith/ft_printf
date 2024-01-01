@@ -8,22 +8,22 @@ SRCS = 	ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strl
 	
 OBJS = $(SRCS:.c=.o)
 CXX = cc
-OPTIONS = -Wall -Werror -Wextra
-CCFLAGS = $(OPTIONS)
-
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
-
-%.o: %.c
-	$(CXX) $(CCFLAGS) -c $< -o $@
+CFLAGS = -Wall -Werror -Wextra
+IFLAGS = -I.
 
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+
+%.o: %.c
+	$(CXX) $(CFLAGS) $(IFLAGS) -c $< -o $@
+
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

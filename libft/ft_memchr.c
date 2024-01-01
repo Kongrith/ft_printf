@@ -6,7 +6,7 @@
 /*   By: kkomasat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 23:57:42 by kkomasat          #+#    #+#             */
-/*   Updated: 2023/11/02 23:40:49 by kkomasat         ###   ########.fr       */
+/*   Updated: 2023/11/08 17:22:27 by kkomasat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ search for a byte with "c" in the pointer string with specific blocks.
 */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
