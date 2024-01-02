@@ -6,7 +6,7 @@
 /*   By: kkomasat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 23:31:27 by kkomasat          #+#    #+#             */
-/*   Updated: 2023/12/31 23:16:55 by kkomasat         ###   ########.fr       */
+/*   Updated: 2024/01/02 00:13:26 by kkomasat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include "./libft/libft.h"
 
 int ft_printf(const char *str, ...);
-int ft_printchar(char c);
+int ft_printchar(va_list args, int count);
 int	ft_printstr(char *str);
 int	ft_printptr(void *ptr);
-int	ft_printdec(int	n);
+int ft_printdec(va_list args, int count);
 
 #endif
