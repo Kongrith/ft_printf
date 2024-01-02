@@ -12,20 +12,8 @@
 
 #include "ft_printf.h"
 
-// int	ft_printchar(va_list args, int count)
 int ft_printchar(int c)
 {
-	/*
-	int c;
-	int i;
-
-	i = 0;
-	while (i != count)
-	{
-		c = va_arg(args, int);
-		i++;
-	}
-	*/
 	write(1, &c, 1);
 	return (1);
 }

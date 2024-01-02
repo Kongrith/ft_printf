@@ -23,7 +23,7 @@ static int format_specifier(va_list args, const char format)
 	else if (format == 'd' || format == 'i')
 		return (ft_printdec(va_arg(args, int)));
 	else if (format == 'X' || format == 'x')
-		return (ft_printhex(va_arg(args, unsigned int)));
+		return (ft_printhex(va_arg(args, unsigned int), format));
 	else if (format == '%')
 	{
 		ft_putchar_fd('%', 1);

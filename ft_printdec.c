@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int count_digit(int n)
+static int count_digit(int n)
 {
 	int digit;
 	int num;
