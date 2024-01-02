@@ -14,8 +14,13 @@
 
 int ft_printstr(char *str)
 {
-	int	length;
+	int length;
 
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	length = ft_strlen(str);
 	write(1, str, length);
 	return (length);

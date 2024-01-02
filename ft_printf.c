@@ -12,16 +12,16 @@
 
 #include "ft_printf.h"
 
-static	int	format_specifier(va_list args, const char format, int count)
+static int format_specifier(va_list args, const char format)
 {
 	if (format == 'c')
-		return (ft_printchar(args, count));
+		return (ft_printchar(va_arg(args, int)));
 	else if (format == 's')
 		return (ft_printstr(va_arg(args, char *)));
 	else if (format == 'p')
 		return (ft_printptr(va_arg(args, void *)));
-	else if (format == 'd')
-		return (ft_printdec(args, count));
+	else if ((format == 'd') || (format == 'i'))
+		return (ft_printdec(va_arg(args, int)));
 	else if (format == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -31,22 +31,24 @@ static	int	format_specifier(va_list args, const char format, int count)
 		return (-1);
 }
 
-int	ft_printf(const char *str, ...)
+int ft_printf(const char *str, ...)
 {
-	int		i;
-	int		count;
-	int		print_length;
-	va_list	args;
+	int i;
+	// int wsl_env;
+	// int count;
+	int print_length;
+	va_list args;
 
 	i = 0;
-	count = 0;
+	// wsl_env = 1;
+	// count = 0;
 	print_length = 0;
 	va_start(args, str);
 	while (str[i])
 	{
 		if (str[i] == '%' && ft_strchr("cspdiuxX%", str[i + 1]))
 		{
-			print_length += format_specifier(args, str[i + 1], ++count);
+			print_length += format_specifier(args, str[i + 1]);
 			i++;
 		}
 		else

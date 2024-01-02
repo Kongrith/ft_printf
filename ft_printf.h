@@ -11,15 +11,15 @@
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdio.h>
-# include "./libft/libft.h"
+#define FT_PRINTF_H
+#include <stdarg.h>
+#include <stdio.h>
+#include "./libft/libft.h"
 
 int ft_printf(const char *str, ...);
-int ft_printchar(va_list args, int count);
-int	ft_printstr(char *str);
-int	ft_printptr(void *ptr);
-int ft_printdec(va_list args, int count);
+int ft_printchar(int c);
+int ft_printstr(char *str);
+int ft_printptr(void *ptr);
+int ft_printdec(int d);
 
 #endif

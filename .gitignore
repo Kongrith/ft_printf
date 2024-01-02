@@ -1,4 +1,5 @@
-# ignore all in libft directory
+# ignore directory
+dev/
 
 # ignore all .o, .a, .out files.
 *.o
