@@ -21,5 +21,6 @@ int ft_printchar(int c);
 int ft_printstr(char *str);
 int ft_printptr(void *ptr);
 int ft_printdec(int d);
+int ft_printhex(unsigned int hex);
 
 #endif

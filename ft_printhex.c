@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printdec.c                                      :+:      :+:    :+:   */
+/*   ft_printhex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkomasat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,36 +12,10 @@
 
 #include "ft_printf.h"
 
-int count_digit(int n)
+int ft_printhex(unsigned int hex)
 {
-	int digit;
-	int num;
-
-	digit = 0;
-	num = n;
-	if (n < 0)
-	{
-		n = n * -1;
-		digit++;
-	}
-	else if (n == 0)
-		return (1);
-
-	while (num != 0)
-	{
-		digit += 1;
-		num /= 10;
-	}
-	return (digit);
-}
-
-int ft_printdec(int n)
-{
-	int length;
-
-	length = 0;
-	length = count_digit(n);
-	ft_putnbr_fd(n, 1);
-
-	return (length);
+    int length;
+    (void)hex;
+    length = 0;
+    return (length);
 }

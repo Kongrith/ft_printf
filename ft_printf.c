@@ -20,8 +20,10 @@ static int format_specifier(va_list args, const char format)
 		return (ft_printstr(va_arg(args, char *)));
 	else if (format == 'p')
 		return (ft_printptr(va_arg(args, void *)));
-	else if ((format == 'd') || (format == 'i'))
+	else if (format == 'd' || format == 'i')
 		return (ft_printdec(va_arg(args, int)));
+	else if (format == 'X' || format == 'x')
+		return (ft_printhex(va_arg(args, unsigned int)));
 	else if (format == '%')
 	{
 		ft_putchar_fd('%', 1);
@@ -34,14 +36,10 @@ static int format_specifier(va_list args, const char format)
 int ft_printf(const char *str, ...)
 {
 	int i;
-	// int wsl_env;
-	// int count;
 	int print_length;
 	va_list args;
 
 	i = 0;
-	// wsl_env = 1;
-	// count = 0;
 	print_length = 0;
 	va_start(args, str);
 	while (str[i])
