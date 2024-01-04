@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#define ISUNSIGNED(num) (num >= 0 && ~num >= 0)
 
 static char *reverse_hex(char *hex, int digit)
 {
@@ -31,19 +32,14 @@ static char *reverse_hex(char *hex, int digit)
     return (hex);
 }
 
-static int count_digit(int n)
+static int count_digit(unsigned int n)
 {
     int digit;
-    int num;
+    unsigned int num;
 
     digit = 0;
     num = n;
-    if (n < 0)
-    {
-        n = n * -1;
-        digit++;
-    }
-    else if (n == 0)
+    if (n == 0)
         return (1);
 
     while (num != 0)
@@ -84,12 +80,21 @@ static char *dec2hex(unsigned long dec, int digit, const char format)
     return (hex);
 }
 
-int ft_printhex(unsigned int dec, const char format)
+int ft_printhex(int a, const char format)
 {
     int length;
     int i;
     int digit;
     char *hex;
+    unsigned int dec;
+
+    dec = (unsigned int)a;
+
+    if (dec == 0)
+    {
+        write(1, "0", 1);
+        return (1);
+    }
 
     length = 0;
     digit = count_digit(dec);

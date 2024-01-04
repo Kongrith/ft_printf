@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 /*
-The memory address is in hexadecimal form, e.g.0x7ffe5367e044 which the bit of number depends on the specific hardware architecture.
+The memory address is in hexadecimal form, e.g.0x7ffe5367e044 (48 bit binary number)
+which the bit of number depends on the specific hardware architecture.
 
 int, long use 4 bytes.
 long int uses 8 bytes.
