@@ -21,49 +21,6 @@ long int uses 8 bytes.
 
 #include "ft_printf.h"
 
-static char *reverse_hex(char *hex)
-{
-	int start;
-	int end;
-	int tmp;
-
-	start = 0;
-	end = 11;
-	while (start < end)
-	{
-		tmp = hex[start];
-		hex[start] = hex[end];
-		hex[end] = tmp;
-		start++;
-		end--;
-	}
-	return (hex);
-}
-
-static char *dec2hex(unsigned long dec)
-{
-	int i;
-	int remainder;
-	char *hex;
-
-	hex = (char *)malloc(13 * sizeof(char));
-	i = 0;
-	while (dec != 0)
-	{
-		remainder = dec % 16;
-		if (remainder < 10)
-			remainder += '0';
-		else
-			remainder += 'W';
-		hex[i] = remainder;
-		dec /= 16;
-		i++;
-	}
-	hex[i] = '\0';
-	hex = reverse_hex(hex);
-	return (hex);
-}
-
 int ft_printptr(void *ptr)
 {
 	if (ptr == NULL || ((void *)0))
@@ -75,9 +32,12 @@ int ft_printptr(void *ptr)
 	char *hex;
 	int i;
 	int length;
+	// int digit;
 
 	dec = (unsigned long)ptr;
-	hex = dec2hex(dec);
+	// hex = dec2hex(dec);
+	// digit = count_digit_uint(dec);
+	hex = dec2hex(dec, 12, 'p');
 	i = 0;
 	write(1, "0x", 2);
 	while (i < 12)

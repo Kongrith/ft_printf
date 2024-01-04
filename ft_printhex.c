@@ -11,84 +11,43 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#define ISUNSIGNED(num) (num >= 0 && ~num >= 0)
 
-static char *reverse_hex(char *hex, int digit)
-{
-    int start;
-    int end;
-    int tmp;
+// static char *dec2hex(unsigned long dec, int digit, const char format)
+// {
+//     int i;
+//     int remainder;
+//     char *hex;
 
-    start = 0;
-    end = digit - 1;
-    while (start < end)
-    {
-        tmp = hex[start];
-        hex[start] = hex[end];
-        hex[end] = tmp;
-        start++;
-        end--;
-    }
-    return (hex);
-}
+//     hex = (char *)malloc((digit + 1) * sizeof(char));
+//     i = 0;
+//     while (dec != 0)
+//     {
+//         remainder = dec % 16;
+//         if (remainder < 10)
+//             remainder += '0';
+//         else
+//         {
+//             if (format == 'x')
+//                 remainder += 'W';
+//             else
+//                 remainder += '7';
+//         }
 
-static int count_digit(unsigned int n)
-{
-    int digit;
-    unsigned int num;
+//         hex[i] = remainder;
+//         dec /= 16;
+//         i++;
+//     }
+//     hex[i] = '\0';
+//     hex = reverse_hex(hex, digit);
+//     return (hex);
+// }
 
-    digit = 0;
-    num = n;
-    if (n == 0)
-        return (1);
-
-    while (num != 0)
-    {
-        digit += 1;
-        num /= 16;
-    }
-    return (digit);
-}
-
-static char *dec2hex(unsigned long dec, int digit, const char format)
-{
-    int i;
-    int remainder;
-    char *hex;
-
-    hex = (char *)malloc((digit + 1) * sizeof(char));
-    i = 0;
-    while (dec != 0)
-    {
-        remainder = dec % 16;
-        if (remainder < 10)
-            remainder += '0';
-        else
-        {
-            if (format == 'x')
-                remainder += 'W';
-            else
-                remainder += '7';
-        }
-
-        hex[i] = remainder;
-        dec /= 16;
-        i++;
-    }
-    hex[i] = '\0';
-    hex = reverse_hex(hex, digit);
-    return (hex);
-}
-
-int ft_printhex(int a, const char format)
+int ft_printhex(unsigned int dec, const char format)
 {
     int length;
     int i;
     int digit;
     char *hex;
-    unsigned int dec;
-
-    dec = (unsigned int)a;
 
     if (dec == 0)
     {
@@ -97,7 +56,7 @@ int ft_printhex(int a, const char format)
     }
 
     length = 0;
-    digit = count_digit(dec);
+    digit = count_hex_digit(dec);
     hex = dec2hex(dec, digit, format);
     i = 0;
     while (i < digit)

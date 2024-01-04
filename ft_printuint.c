@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_uint.c                                        :+:      :+:    :+:   */
+/*   ft_print_uint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkomasat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -57,30 +57,12 @@ void print_uint(unsigned int u)
         ft_putchar_fd(u + '0', fd);
 }
 
-static int count_digit(unsigned int u)
-{
-    int digit;
-    unsigned int num;
-
-    digit = 0;
-    num = u;
-    if (u == 0)
-        return (1);
-
-    while (num != 0)
-    {
-        digit += 1;
-        num /= 10;
-    }
-    return (digit);
-}
-
 int ft_printuint(unsigned int u)
 {
     int length;
 
     length = 0;
-    length = count_digit(u);
+    length = count_uint_digit(u);
     print_uint(u);
 
     return (length);
