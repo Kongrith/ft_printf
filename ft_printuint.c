@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
 /*  How Integer Numer Store in The Memoty Computer
 the computer store data in the memory using the two’s complement method.
 When the number was casted to an unsigned integer, the binary number was assumed as an unsigned binary number.

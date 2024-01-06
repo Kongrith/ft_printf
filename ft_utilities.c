@@ -35,6 +35,42 @@ int count_dec_digit(int n)
     return (digit);
 }
 
+// int count_hex_digit(unsigned int n)
+// {
+//     int digit;
+//     unsigned int num;
+
+//     digit = 0;
+//     num = n;
+//     if (n == 0)
+//         return (1);
+
+//     while (num != 0)
+//     {
+//         digit += 1;
+//         num /= 16;
+//     }
+//     return (digit);
+// }
+
+int count_digit_lu(unsigned long n)
+{
+    int digit;
+    unsigned long num;
+
+    digit = 0;
+    num = n;
+    if (n == 0)
+        return (1);
+
+    while (num != 0)
+    {
+        digit += 1;
+        num /= 16;
+    }
+    return (digit);
+}
+
 int count_uint_digit(unsigned int u)
 {
     int digit;

@@ -28,6 +28,7 @@ int ft_printhex(unsigned int dec, const char format);
 // Utility Functions
 int count_dec_digit(int n);
 int count_uint_digit(unsigned int u);
+int count_digit_lu(unsigned long n);
 int count_hex_digit(unsigned int n);
 char *reverse_hex(char *hex, int digit);
 char *dec2hex(unsigned long dec, int digit, const char format);
