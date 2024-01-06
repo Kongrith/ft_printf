@@ -12,13 +12,12 @@
 
 #include "ft_printf.h"
 
-int ft_printdec(int n)
+int	ft_printdec(int n)
 {
-	int length;
+	int	length;
 
 	length = 0;
 	length = count_dec_digit(n);
 	ft_putnbr_fd(n, 1);
-
 	return (length);
 }

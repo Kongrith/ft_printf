@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-int ft_printstr(char *str)
+int	ft_printstr(char *str)
 {
-	int length;
+	int	length;
 
 	if (!str)
 	{

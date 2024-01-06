@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int format_specifier(va_list args, const char format)
+static int	format_specifier(va_list args, const char format)
 {
 	if (format == 'c')
 		return (ft_printchar(va_arg(args, int)));
@@ -35,11 +35,11 @@ static int format_specifier(va_list args, const char format)
 		return (-1);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	int i;
-	int print_length;
-	va_list args;
+	va_list	args;
+	int		i;
+	int		print_length;
 
 	i = 0;
 	print_length = 0;

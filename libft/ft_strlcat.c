@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 /*	strlcat()
-*	function returns the combined length of both src and dst strings (not counting
-* 	terminating null character.
+*	function returns the combined length of both src and dst strings
+*	(not counting terminating null character.
 
 Before :                || After :
 dst   | src   | size    || dst      | return
