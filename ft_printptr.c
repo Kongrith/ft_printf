@@ -5,31 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkomasat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 12:28:41 by kkomasat          #+#    #+#             */
-/*   Updated: 2023/12/29 14:34:07 by kkomasat         ###   ########.fr       */
+/*   Created: 2024/01/07 18:52:55 by kkomasat          #+#    #+#             */
+/*   Updated: 2024/01/07 19:15:20 by kkomasat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-The memory address is in hexadecimal form, e.g.0x7ffe5367e044 which the bit of number depends on the specific hardware architecture.
-
-int, long use 4 bytes.
-long int uses 8 bytes.
-
-*/
-
-
 #include "ft_printf.h"
+
+static int	print_ptr(char *hex, int digit)
+{
+	int	i;
+	int	length;
+
+	write(1, "0x", 2);
+	length = 0;
+	i = 0;
+	while (i < digit)
+	{
+		if (hex[i] != '\0')
+		{
+			write(1, &hex[i], 1);
+			length++;
+		}
+		++i;
+	}
+	return (length);
+}
 
 int	ft_printptr(void *ptr)
 {
-	//int					length;
-	unsigned long int	addr;
+	unsigned long	dec;
+	int				length;
+	int				digit;
+	char			*hex;
 
-	addr = (unsigned long int) &ptr;
-	//length = ft_strlen(addr);
-	//write(1, addr, length);
-	printf("%lu\n", addr);
-
-	return (0);
+	if (ptr == NULL || ((void *)0))
+	{
+		write(1, "0x0", 3);
+		return (3);
+	}
+	dec = (unsigned long)ptr;
+	digit = count_digit_lu(dec);
+	hex = dec2hex(dec, digit, 'p');
+	length = print_ptr(hex, digit);
+	free(hex);
+	return (length + 2);
 }

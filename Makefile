@@ -7,7 +7,9 @@ IFLAGS = -I.
 LIBFTDIR = ./libft
 LIBFT_PATH = $(LIBFTDIR)/$(LIBFTNAME)
 
-SRCS = ft_printf.c ft_printchar.c ft_printstr.c ft_printptr.c ft_printdec.c
+SRCS = ft_printf.c ft_printchar.c ft_printstr.c ft_printptr.c ft_printdec.c ft_printhex.c ft_printuint.c \
+		ft_utilities.c
+		
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -25,7 +27,7 @@ $(NAME): $(OBJS)
 clean:
 	@rm -f $(OBJS)
 	@make clean -C $(LIBFTDIR)
-	@echo "cleand the object files successfully"
+	@echo "cleaned the object files successfully"
 
 fclean: clean
 	@rm -f $(NAME)
