@@ -1,7 +1,8 @@
 # ignore all in libft directory
-libft
+/libft
 
 # ignore all .o, .a, .out files.
+main
 *.o
 *.a
 *.out
@@ -15,7 +16,9 @@ libft
 # ignore test & example files
 ex*.c
 test*.c
+main*.c
 
 # ignore all testers (matches any files and directories with the name)
 ft_printf_tester
 printfTester
+.vscode
