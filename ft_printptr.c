@@ -6,7 +6,7 @@
 /*   By: kkomasat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 18:52:55 by kkomasat          #+#    #+#             */
-/*   Updated: 2024/01/07 19:15:20 by kkomasat         ###   ########.fr       */
+/*   Updated: 2024/03/13 19:24:41 by khkomasa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	ft_printptr(void *ptr)
 
 	if (ptr == NULL || ((void *)0))
 	{
-		write(1, "0x0", 3);
-		return (3);
+		write(1, "(nil)", 5);
+		return (5);
 	}
 	dec = (unsigned long)ptr;
 	digit = count_digit_lu(dec);
