@@ -68,12 +68,13 @@ int	count_uint_digit(unsigned int u, int base)
 	return (digit);
 }
 
-char	*reverse_hex(char *hex, int digit)
+char	*reverse_hex(char *hex, int digit, int i)
 {
 	int	start;
 	int	end;
 	int	tmp;
 
+	hex[i] = '\0';
 	start = 0;
 	end = digit - 1;
 	while (start < end)
@@ -93,7 +94,9 @@ char	*dec2hex(unsigned long dec, int digit, const char format)
 	int		remainder;
 	char	*hex;
 
-	hex = (char *) malloc((digit + 1) * sizeof(char));
+	hex = (char *)malloc((digit + 1) * sizeof(char));
+	if (!hex)
+		return (NULL);
 	i = 0;
 	while (dec != 0)
 	{
@@ -107,11 +110,9 @@ char	*dec2hex(unsigned long dec, int digit, const char format)
 			else
 				remainder += '7';
 		}
-		hex[i] = remainder;
+		hex[i++] = remainder;
 		dec /= 16;
-		i++;
 	}
-	hex[i] = '\0';
-	hex = reverse_hex(hex, digit);
+	hex = reverse_hex(hex, digit, i);
 	return (hex);
 }

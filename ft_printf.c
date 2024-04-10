@@ -41,6 +41,8 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	int		print_length;
 
+	if (!str)
+		return (-1);
 	i = 0;
 	print_length = 0;
 	va_start(args, str);
