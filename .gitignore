@@ -1,11 +1,12 @@
 # ignore all in libft directory
-/libft
+libft
 
 # ignore all .o, .a, .out files.
 main
 *.o
 *.a
 *.out
+*.swp
 
 # ignore macos file
 .DS_Store
@@ -19,6 +20,6 @@ test*.c
 main*.c
 
 # ignore all testers (matches any files and directories with the name)
-ft_printf_tester
-printfTester
-.vscode
+ft_printf_tester/
+printfTester/
+.vscode/

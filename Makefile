@@ -15,13 +15,13 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 	@echo "built $(NAME) successfully"
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	@make -C $(LIBFTDIR)
 	@cp $(LIBFT_PATH) $(LIBFTNAME)
 	@mv $(LIBFTNAME) $(NAME)
 	@ar rcs $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.c ft_printf.h ./libft/libft.h
 	$(CXX) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
